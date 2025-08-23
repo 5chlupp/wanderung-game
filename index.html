@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>Wanderung – Prototyp</title>
+    <link rel="preload" href="/assets/audio/birds_loop.mp3" as="audio" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <button id="busButton" aria-label="Bus">BUS</button>
+      <button id="pauseButton" aria-label="Pause">PAUSE</button>
+      <canvas id="game"></canvas>
+      <button id="actionButton" aria-label="Springen">SPRINGEN</button>
+      <div id="orientationHint" hidden>
+        <span>Gerät drehen für bessere Sicht</span>
+      </div>
+      <div id="debug" hidden></div>
+    </div>
+
+    <script defer src="./js/main.js"></script>
+  </body>
+  </html>
+
+
