@@ -101,3 +101,25 @@ body { background: var(--bg); color: var(--fg); font-family: system-ui, -apple-s
 #pauseButton:active { transform: scale(0.95); }
 
 
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: #0b0e12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#startButton {
+  padding: 20px 40px;
+  font-size: 32px;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+
