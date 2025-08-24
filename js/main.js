@@ -650,15 +650,26 @@ function stopFerrySound() {
   ferrySound.currentTime = 0;
 }
 
-try {
-  requestAnimationFrame(tick);
-  // Starte Hintergrundmusik nach kurzer Verzögerung
-  setTimeout(startBackgroundMusic, 1000);
-} catch (err) {
-  if (debugEl) {
-    debugEl.hidden = false;
-    debugEl.textContent = `Loop-Fehler: ${String(err)}`;
-  }
+const startScreen = document.getElementById('startScreen');
+const startButton = document.getElementById('startButton');
+
+// Prüfen, ob alle Assets geladen sind
+function assetsLoaded() {
+  return runnerImage.complete && busImage.complete && pauseImage.complete && ferryImage.complete;
 }
+
+function startGame() {
+  if (!assetsLoaded()) {
+    console.log("Assets noch nicht fertig, warte...");
+    setTimeout(startGame, 200);
+    return;
+  }
+
+  requestAnimationFrame(tick);
+  backgroundMusic.play().catch(e => console.log("Musik konnte nicht starten:", e));
+  startScreen.style.display = 'none';
+}
+
+startButton.addEventListener('click', startGame);
 
 
